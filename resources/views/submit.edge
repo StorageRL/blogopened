@@ -1,0 +1,69 @@
+@layout('master')
+
+
+@section('content')
+
+
+		<section id="content">
+
+			<div class="content-wrap">
+
+				<div class="container clearfix" id="submitedge">
+					
+                    <div class="heading-block center">
+                        <h1>Submit Post</h1>
+                        <span>Got something worth sharing? Submit it here!</span>
+                    </div>
+    
+    
+                    <div class="style-msg" 
+                :class="[submit_alert_class]"
+                v-if:="submit_show_alert">
+                        <div class="sb-msg">
+                            @{{submit_alert_msg}}
+                        </div>
+                    </div>
+    
+                    <form @submit.prevent="submit()">
+                        {{ csrfField() }}
+                        <div class="form-group">
+                            <label>Title</label>
+                            <input type="text" class="form-control" placeholder="Title"
+                            :disabled="submit_is_processing" v-model="form.title">
+						</div>
+						<div class="form-group">
+							<label>Category</label>
+							<select class="form-control" :disabled="submit_is_processing" v-model="form.category">
+								<option value="1">Category 1</option>
+								<option value="2">Category 2</option>
+								<option value="3">Category 3</option>
+							</select>
+						</div>
+                        <div class="form-group">
+                            <label>Image</label>
+							<input type="file" class="form-control" :disabled="submit_is_processing">
+                        </div>
+                        <div class="form-group">
+                            <label>Content</label>
+                            <textarea class="form-control" id="post-content" rows="10" :disabled="submit_is_processing"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary" :disabled="submit_is_processing">Submit</button>
+                        </div>
+                    </form>
+
+				</div>
+
+			</div>
+
+		</section><!-- #content end -->
+
+		@endsection
+
+
+@section('scripts')
+{{script('tinymce/tinymce.min.js')}}
+{{ script('https://cdn.jsdelivr.net/npm/vue/dist/vue.js') }}
+{{ script('js/submit.js') }}
+
+@endsection

@@ -1,0 +1,70 @@
+@layout('master');
+
+
+
+@section('content')
+	<!-- Content
+		============================================= -->
+		<section id="content">
+
+			<div class="content-wrap">
+
+				<a class="button button-full button-purple center tright header-stick bottommargin-lg">
+					<div class="container clearfix">
+						Welcome! <i class="icon-caret-right" style="top:4px;"></i>
+					</div>
+				</a>
+	
+
+				<div class="container clearfix">
+					
+					<!-- Posts
+					============================================= -->
+					<div id="posts" class="post-grid grid-container grid-2 clearfix" data-layout="fitRows">
+
+
+						@each(post in posts.data)
+						
+						<div class="entry clearfix">
+							<div class="entry-image">
+							<a href="{{route('post', {id:post.id})}}"><img class="image_fade" src="{{post.img_url}}"></a>
+							</div>
+							<div class="entry-title">
+								<h2><a href="{{route('post', {id:post.id})}}">{{post.title}}</a></h2>
+							</div>
+							<ul class="entry-meta clearfix">
+								<li><i class="icon-calendar3"></i> {{format_date(post.created_at)}}</li>
+								<li><a href="#"><i class="icon-folder-open"></i></a> <a href="#">Category</a></li>
+								<li><a href="#"><i class="icon-user"></i></a> <a href="#">{{post.author.username}}</a></li>
+							</ul>
+							<div class="entry-content">
+								<a href="{{route('post', {id:post.id})}}"class="more-link">Read More</a>
+							</div>
+						</div>
+						@endeach
+						
+
+					</div><!-- #posts end -->
+
+					<!-- Pagination
+					============================================= -->
+					<ul class="pager nomargin">
+
+						@if( posts.page < posts.lastPage )
+						<li class="previous">
+							<a href="/?p={{ posts.page + 1 }}">&larr; Older</a>
+						</li>
+					@endif
+					@if( posts.page > 1 )
+						<li class="next">
+							<a href="/?p={{ posts.page - 1 }}">Newer &rarr;</a>
+						</li>
+					@endif
+					</ul><!-- .pager end -->
+
+				</div>
+
+			</div>
+
+		</section><!-- #content end -->
+        @endsection
