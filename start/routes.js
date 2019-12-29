@@ -30,3 +30,11 @@ Route.get('/get-comments', 'CommentController.get_comments');
 Route.get('/admin/categories', 'CategoryController.manage').middleware(['auth_required','admin_only']);
 Route.post('/add-category', 'CategoryController.add').middleware(['auth_required','admin_only']);
 Route.post('/remove-category', 'CategoryController.remove').middleware(['auth_required','admin_only']);
+Route.get( '/category/:id', 'CategoryController.page' ).as( 'category' );
+Route.get('/edit-profile', 'ProfileController.edit_page').middleware(['auth_required']).as('edit_profile');
+Route.post('edit-profile', 'ProfileController.update').middleware(['auth_required']);
+
+Route.get('/author/:username', "ProfileController.profile").as('profile');
+Route.get('/admin/settings', 'SettingController.page').middleware(['auth_required']).middleware(['admin_only']);
+Route.post('/admin/settings', 'SettingController.update').middleware(['auth_required']).middleware(['admin_only']);
+Route.get('/search', 'SearchController.search');

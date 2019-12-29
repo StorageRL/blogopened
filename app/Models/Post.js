@@ -15,6 +15,10 @@ author() {
 
 }
 
+
+cat(){
+    return this.hasOne( 'App/Models/Category', 'cid', 'id' );
+}
 }
 
 module.exports = Post

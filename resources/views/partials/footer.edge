@@ -9,25 +9,36 @@
 				<div class="container clearfix">
 
 					<div class="col_half">
-						Copyrights &copy; 2018 All Rights Reserved.<br>
+						{{settings.copyright_text}}<br>
 					</div>
 
+					@if(settings.facebook_handle)
 					<div class="col_half col_last tright">
 						<div class="fright clearfix">
 							<a href="#" class="social-icon si-small si-borderless si-facebook">
 								<i class="icon-facebook"></i>
 								<i class="icon-facebook"></i>
 							</a>
+					@endif
+					@if(settings.twitter_handle)
+					<a href="#" class="social-icon si-small si-borderless si-twitter">
+						<i class="icon-twitter"></i>
+						<i class="icon-twitter"></i>
+					</a>
+					@endif
+					@if(settings.github_handle)
+					<a href="#" class="social-icon si-small si-borderless si-github">
+						<i class="icon-github"></i>
+						<i class="icon-github"></i>
+					</a>
+					@endif
 
-							<a href="#" class="social-icon si-small si-borderless si-twitter">
-								<i class="icon-twitter"></i>
-								<i class="icon-twitter"></i>
-							</a>
 
-							<a href="#" class="social-icon si-small si-borderless si-github">
-								<i class="icon-github"></i>
-								<i class="icon-github"></i>
-							</a>
+					
+
+							
+
+							
 
 						</div>
 

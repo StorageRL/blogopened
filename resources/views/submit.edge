@@ -34,9 +34,12 @@
 						<div class="form-group">
 							<label>Category</label>
 							<select class="form-control" :disabled="submit_is_processing" v-model="form.category">
-								<option value="1">Category 1</option>
-								<option value="2">Category 2</option>
-								<option value="3">Category 3</option>
+                                @each(category in categories)
+                                <option value="{{category.id}}"> 
+                                {{category.name}}
+                                @endeach
+                                </option>
+								
 							</select>
 						</div>
                         <div class="form-group">

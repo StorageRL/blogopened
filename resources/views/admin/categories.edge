@@ -31,7 +31,7 @@
                     <tr v-for="(category,index) in categories">
                         <td>@{{category.name}}</td>
                         <td>
-                            <a href="#" class="btn btn-primary btn-sm">
+                            <a :href="'/category/' + category.id" class="btn btn-primary btn-sm">
                                 <i class="icon-eye"></i>
                             </a>
                             <button type="button" class="btn btn-danger btn-sm"
